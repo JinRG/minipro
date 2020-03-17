@@ -1,0 +1,21 @@
+<!--components/tabs/tabs.wxml-->
+<view class="tabs">
+  <view class="tab_title">
+    <!-- <view class="title_item active">首页</view>
+    <view class="title_item">商品</view>
+    <view class="title_item">订单</view>
+    <view class="title_item">我的</view> -->
+    <!-- data-para 属性：签名的data-是固定的 后面的para名称可以自定义，之后js打印这个标签时会出现在currentTarget.dataSet里面 用于方法传参-->
+    <view 
+    wx:for="{{tabs}}" 
+    wx:key="id"
+    bindtap="handlerTapsTap"
+    data-para="{{item.tabs_content}}" 
+    data-index="{{item.id}}"
+    class="title_item {{item.isActive?'active':''}}" >{{item.tabs_title}}</view>
+    
+  </view> 
+  <view class="tab_content">
+      {{content}}
+  </view> 
+</view>

@@ -1,30 +1,19 @@
-// Pages/home/home.js
+// Pages/testcomponent/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"jrg",
-    count:0
+   content:"首页内容",
+    tabs:[
+      {id:0,tabs_title:"首页",isActive:true,tabs_content:"首页内容"},
+      { id:1,tabs_title: "商品", isActive: false, tabs_content: "商品内容" },
+      { id:2,tabs_title: "订单",isActive: false, tabs_content: "订单内容" },
+      { id:3,tabs_title: "我的", isActive: false, tabs_content: "个人中心" }
+    ]
   },
-  // handleCount(flag){
-  //   if(flag==0){
-  //     this.setData({
-  //       count:this.data.count+1
-  //     });
-  //   }else{
-  //     this.setData({
-  //       count: this.data.count - 1
-  //     });
-  //   }
-  // },
-  handleCount(){
-      this.setData({
-        count:this.data.count+1
-      });
-  },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */

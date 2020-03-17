@@ -1,0 +1,4 @@
+<!--Pages/testcomponent/test.wxml-->
+<!-- 自定义的组件，与普通标签使用一样 -->
+<!-- tabs和content都是传向tabs组件的入参 -->
+<tabs tabs="{{tabs}}" content="{{content}}"></tabs>

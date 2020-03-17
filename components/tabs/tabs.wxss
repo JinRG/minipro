@@ -1,0 +1,20 @@
+/* components/tabs/tabs.wxss */
+.tabs{}
+.tab_title{
+  display: flex;
+  padding: 10rpx;
+}
+
+.title_item{
+  flex: 1;      /* 让所有弹性盒模型对象的子元素都有相同的长度，忽略它们内部的内容 */
+display: flex;
+justify-content: center;  /*在父级水平居中*/
+align-items: center;/*在父级垂直居中*/
+}
+
+.active{
+  color: red;
+  border-bottom: 5rpx solid red;
+}
+.tab_content{
+}

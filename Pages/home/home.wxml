@@ -1,5 +1,9 @@
 <!--Pages/home/home.wxml-->
+
 <text>hello world</text>
-<block>
-<text>项目初始化</text>
-</block>
+<view>hello {{name}}</view>
+
+<view>计数器:{{count}}</view>
+<button bindtap="handleCount">增加</button>
+<button bindtap="handleCount">减少</button>
+

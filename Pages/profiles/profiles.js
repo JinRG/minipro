@@ -1,30 +1,13 @@
-// Pages/home/home.js
+// Pages/profiles/profiles.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"jrg",
-    count:0
+
   },
-  // handleCount(flag){
-  //   if(flag==0){
-  //     this.setData({
-  //       count:this.data.count+1
-  //     });
-  //   }else{
-  //     this.setData({
-  //       count: this.data.count - 1
-  //     });
-  //   }
-  // },
-  handleCount(){
-      this.setData({
-        count:this.data.count+1
-      });
-  },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
