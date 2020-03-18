@@ -30,6 +30,9 @@ Page({
    */
   onLoad: function (options) {
 
+    //    wx.navigateTo({
+    //    url: '/Pages/about/about',
+    //  })
   },
 
   /**
