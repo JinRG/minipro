@@ -1,4 +1,11 @@
 <!--Pages/testcomponent/test.wxml-->
-<!-- 自定义的组件，与普通标签使用一样 -->
+<!-- 自定义的子组件，与普通标签使用一样 父组件向子组件传递参数用标签的方式-->
 <!-- tabs和content都是传向tabs组件的入参 -->
-<tabs tabs="{{tabs}}" content="{{content}}"></tabs>
+<!-- 子组件向父组件回传参数需要通过自定义事件的方式  bind前缀是固定的itemTap是自定义的事件 子组件可以触发这个自定义事件回传参数-->
+<tabs tabs="{{tabs}}" content="{{content}}" binditemsTap="handleItemTap">
+<!-- 调用子组件时，里面的内容也可以传递到子组件，自动替换掉子组件中slot标签的位置 -->
+  <block wx:for="{{tabs}}" data-item="item" data-index="index" wx:key="id">
+      <block wx:if="{{item.isActive}}">{{item.tabs_content}}</block>
+      <!-- <block>这是内容</block> -->
+  </block>
+</tabs>

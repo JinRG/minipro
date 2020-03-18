@@ -4,5 +4,6 @@
     "Pages/about/about",
     "Pages/profiles/profiles",
     "Pages/testcomponent/test"
-  ]
+  ],
+  "sitemapLocation": "sitemap81.json"
 }

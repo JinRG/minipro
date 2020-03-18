@@ -39,14 +39,16 @@ Component({
     //将当前点击的item设置为active
     handlerTapsTap(e) {
       //内容
-      const content = e.currentTarget.dataset.para;  
+     // const content = e.currentTarget.dataset.para;  
       //索引
-      const index = e.currentTarget.dataset.index;  
+      //const index = e.currentTarget.dataset.index;  
       //数组
       //遍历数组 v是对象，i是遍历索引.
-      //强调：遍历数组修改的时候会使得原数组被修改，只是不用setData方式不会重新渲染页面而已，因此最严谨的做法应该重新拷贝一份数组再遍历
-      //let items = this.data.tabs; 
-      let items = JSON.parse(JSON.stringify(this.data.tabs));
+      //强调：，只是不用setData方式不会重新渲染页面而已，
+      //官方建议最严谨的做法应该重新拷贝一份数组，用备份数组处理数据
+      //let items = this.data.tabs;  此种不推荐，但也可以用
+
+      /*let items = JSON.parse(JSON.stringify(this.data.tabs));//JSON.stringify返回的是json字符串，已经指向了不同的对象，再转为json数组
       items.forEach((v,i)=>{
         if(v.id===index){//
            v.isActive = true;
@@ -59,9 +61,27 @@ Component({
 
       });
       this.setData({
-        content:content,
+        content:cont
         tabs:items
-      });
+      });*/
+
+      // this.setData这个方法相当于在data{}数据源中又添加了一份数据，但实际上数据源是从父组件传递过来的，存在于properties中。可以查看
+      // Appdata一栏，通过在子组件setData，会在子组件的data{}中添加一份数据，只是子组件的外观变了，但父组件的源数据没改变，因此这种做法不准确
+      //导致的问题，我们需要外观与真实的数据同步改变
+
+      //console.log(index);
+
+     //内容
+      //等价于  const { para } = e.currentTarget.dataset;  { para }是json对象
+      const para = e.currentTarget.dataset.para;
+      //索引
+      const index = e.currentTarget.dataset.index; 
+      //组装回传json对象
+      const data = {};
+      data["content"] = para;
+      data["index"] = index;
+      this.triggerEvent("itemsTap", JSON.parse(JSON.stringify(data)));//触发父组件自定义itemstap事件，父组件可以收到回调参数,第一个参数是回调值，第二个是事件选项
+      
     }
   }
 })

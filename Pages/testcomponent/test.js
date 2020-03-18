@@ -13,6 +13,28 @@ Page({
       { id:3,tabs_title: "我的", isActive: false, tabs_content: "个人中心" }
     ]
   },
+  
+  handleItemTap(e){
+    //console.log(e); //{index} 代表一个json对象，也可以直接取出里面的index变量表示index的value值
+    const {index} = e.detail;
+    const  {content} = e.detail;
+    let items = JSON.parse(JSON.stringify(this.data.tabs));//JSON.stringify返回的是json字符串，已经指向了不同的对象，再转为json数组
+      items.forEach((v,i)=>{
+        if(v.id===index){//
+           v.isActive = true;
+           this.setData({
+             content: content
+           });
+        }else{
+           v.isActive = false;
+        }
+
+      });
+      this.setData({
+        tabs:items
+      });
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载

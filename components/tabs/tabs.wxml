@@ -16,6 +16,7 @@
     
   </view> 
   <view class="tab_content">
-      {{content}}
+      <!-- {{content}} -->
+      <slot></slot>
   </view> 
 </view>
